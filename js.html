@@ -1,0 +1,49 @@
+<script src="js/clock.js"></script>
+<script>
+    function askName() {
+    let name = prompt("Adınız Nedir?");
+  
+    name != ""
+      ? ((document.querySelector("#myName").innerHTML = name), window.onload()) 
+      : alert("Lütfen Adınızı Girin!"),
+      window.location.reload();
+  }
+
+function showTime() {
+    var date = new Date();
+    var h = date.getHours(); // saat 
+    var m = date.getMinutes(); // dakika
+    var s = date.getSeconds(); // saniye
+    var day = date.getDay(); // gün
+  
+    if (day == 1) {
+      day = "Pazartesi";
+    } else if (day == 2) {
+      day = "Salı";
+    } else if (day == 3) {
+      day = "Carsamba";
+    } else if (day == 4) {
+      day = "Persembe";
+    } else if (day == 5) {
+      day = "Cuma";
+    } else if (day == 6) {
+      day = "Cumartesi";
+    } else if (day == 7) {
+      day = "Pazar";
+    }
+  
+    h = h < 10 ? "0" + h : h;
+    m = m < 10 ? "0" + m : m;
+    s = s < 10 ? "0" + s : s;
+  
+    var time = h + ":" + m + ":" + s + " " + day;
+    
+   
+    let myClock = document.querySelector("#myClock")
+    myClock.innerHTML = `${time}`
+
+    setTimeout(showTime, 1000); 
+  }
+  showTime();
+  askName();
+</script>
